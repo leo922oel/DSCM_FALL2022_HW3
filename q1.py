@@ -21,6 +21,7 @@ def Poisson_Distribution(l):
     x = 0
     while cdf <= U:
         cdf += (l ** x) * np.exp(-l) / math.factorial(x)
+        print(cdf)
         x += 1
     return x-1
 
@@ -51,7 +52,7 @@ def N_Binomial_Distribution(r, p):
 
 def Dirichlet_Distribution(a):
     U = get_RandomVariable()
-    gammavariate(a, 1) for a in params
+    # gammavariate(a, 1) for a in params
     pass
 #%%
-# get_RandomVariable()
+print(Poisson_Distribution(10))
