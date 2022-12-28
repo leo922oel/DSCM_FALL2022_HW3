@@ -2,7 +2,7 @@
 import numpy as np
 from random import uniform
 import matplotlib.pyplot as plt
-
+#%%
 def pi_estimation(n, h):
     X = np.zeros((2, n))
     t = np.zeros((1, n))
@@ -50,15 +50,18 @@ def wrong_pi_estimation(n, h):
 
 #%%
 # print(pi_estimation(20000, 1))
-# print(wrong_pi_estimation(20000, 1))
+print(wrong_pi_estimation(20000, 1))
+#%%
 
-pi_list = np.zeros(1000)
-for i in range(1000):
+pi_list = np.zeros(100)
+for i in range(100):
     if (i+1) % 100 == 0: print(i)
-    pi_list[i] = pi_estimation(20000, 1)
+    pi_list[i], _= wrong_pi_estimation(20000, 1.5)
+#%%
+print(f"mean: {round(np.mean(pi_list), 3)}\nstd: {round(np.std(pi_list), 3)}")
 #%%
 plt.title("Simulation with 1000 epochs")
 plt.hist(pi_list)
-plt.text(3.16, 170, f"mean: {round(np.mean(pi_list), 3)}\nstd: {round(np.std(pi_list), 3)}", fontsize=12)
+plt.text(3.46, 12.5, f"mean: {round(np.mean(pi_list), 3)}\nstd: {round(np.std(pi_list), 3)}", fontsize=12)
 
 # %%

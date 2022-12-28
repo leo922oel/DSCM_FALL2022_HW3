@@ -11,6 +11,7 @@ def Normal_Distribution(mean, std):
     U = get_RandomVariable()
 
     pass
+
 def Exponential_Distribution(l):
     U = get_RandomVariable()
     return np.log(1-U) / (-l)
@@ -21,7 +22,6 @@ def Poisson_Distribution(l):
     x = 0
     while cdf <= U:
         cdf += (l ** x) * np.exp(-l) / math.factorial(x)
-        print(cdf)
         x += 1
     return x-1
 
@@ -32,12 +32,14 @@ def Chi_Square_Distribution(df):
 def F_Distribution(mean, std):
     U = get_RandomVariable()
     pass
+
 def Binomial_Distribution(n, p):
     U = get_RandomVariable()
     cdf = 0
     x = 0
     while cdf <= U:
-        cdf += (math.factorial(n) / (math.factorial(x) * math.factorial(n-x))) * (p**x) * ((1-p)**(n-x))
+        cdf += (math.factorial(n) / (math.factorial(x) * math.factorial(n-x))) *\
+             (p**x) * ((1-p)**(n-x))
         x += 1
     return x-1
 
@@ -46,7 +48,8 @@ def N_Binomial_Distribution(r, p):
     cdf = 0
     x = 0
     while cdf <= U:
-        cdf += (math.factorial(x+r-1) / (math.factorial(r-1) * math.factorial(x))) * (p**(r)) * ((1-p)**(x))
+        cdf += (math.factorial(x+r-1) / (math.factorial(r-1) * math.factorial(x))) *\
+             (p**(r)) * ((1-p)**(x))
         x += 1
     return x-1
 

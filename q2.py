@@ -1,6 +1,7 @@
 #%%
 import numpy as np
 import random
+import matplotlib.pyplot as plt
 from scipy import stats
 #%%
 def simulated_distribution(x):
@@ -44,6 +45,21 @@ def Rejection_sampling(n, target_mean, target_std):
             i = i + 1
     
     return np.sum((x**2) * p.cdf(x)) / n
+
 #%%
 # print(Importance_sampling(10000, 0, 1))
 print(Rejection_sampling(10000, 0, 1))
+#%%
+list = np.zeros(10)
+for i in range(10):
+    if (i+1) % 100 == 0: print(i)
+    list[i] = round(Importance_sampling(10000, 0, 1),3)
+#%%
+print(list)
+print(f"mean: {round(np.mean(list), 3)}\nstd: {round(np.std(list), 3)}")
+#%%
+plt.title("EStimation with 1000 epochs")
+plt.hist(list)
+plt.text(3.46, 12.5, f"mean: {round(np.mean(list), 3)}\nstd: {round(np.std(list), 3)}", fontsize=12)
+
+# %%
